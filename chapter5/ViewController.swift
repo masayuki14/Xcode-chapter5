@@ -10,6 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var zipField: UITextField!
+    
+    @IBAction func tapEnd() {
+    }
+    
+    @IBAction func tapSearch() {
+
+        guard let zipText = zipField.text else {
+            return;
+        }
+        
+        let urlStr = "http://api.zipaddress.net/?zipcode=\(zipText)"
+
+        if let url = NSURL(string: urlStr) {
+            let urlSession = NSURLSession.sharedSession()
+            let task = urlSession.dataTaskWithURL(url, completionHandler: self.onGetAddress)
+            task.resume()
+        }
+    }
+    
+    func onGetAddress(data: NSData?, res: NSURLResponse?, error: NSError?) {
+        print (data)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
