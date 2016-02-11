@@ -31,7 +31,37 @@ class ViewController: UIViewController {
     }
     
     func onGetAddress(data: NSData?, res: NSURLResponse?, error: NSError?) {
-        print (data)
+        //print (data)
+        
+        do {
+            // jsonを解析
+            let jsonDic = try NSJSONSerialization.JSONObjectWithData(
+                data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            if let code = jsonDic["code"] as? Int {
+                
+                // 200以外はエラー
+                if code != 200 {
+                    if let errmsg = jsonDic["message"] as? String {
+                        print (errmsg)
+                    }
+                }
+            }
+            
+            if let resData = jsonDic["data"] as? NSDictionary {
+                
+                // 県名
+                if let pref = resData["pref"] as? String {
+                    print ("県名は \(pref) です")
+                }
+                // 住所
+                if let address = resData["address"] as? String {
+                    print ("住所は \(address) です")
+                }
+            }
+            
+        } catch {
+            print ("It's error.")
+        }
     }
     
     override func viewDidLoad() {
