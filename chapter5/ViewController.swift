@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var zipField: UITextField!
+    @IBOutlet weak var prefLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     @IBAction func tapEnd() {
     }
@@ -51,11 +53,17 @@ class ViewController: UIViewController {
                 
                 // 県名
                 if let pref = resData["pref"] as? String {
-                    print ("県名は \(pref) です")
+//                    print ("県名は \(pref) です")
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.prefLabel.text = pref
+                    }
                 }
                 // 住所
                 if let address = resData["address"] as? String {
-                    print ("住所は \(address) です")
+//                    print ("住所は \(address) です")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.addressLabel.text = address
+                    })
                 }
             }
             
