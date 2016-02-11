@@ -13,11 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var zipField: UITextField!
     @IBOutlet weak var prefLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func tapEnd() {
+        clearLabels()
     }
     
     @IBAction func tapSearch() {
+        clearLabels()
 
         guard let zipText = zipField.text else {
             return;
@@ -32,6 +35,12 @@ class ViewController: UIViewController {
         }
     }
     
+    func clearLabels() {
+        prefLabel.text = ""
+        addressLabel.text = ""
+        errorLabel.text = ""
+    }
+    
     func onGetAddress(data: NSData?, res: NSURLResponse?, error: NSError?) {
         //print (data)
         
@@ -44,7 +53,10 @@ class ViewController: UIViewController {
                 // 200以外はエラー
                 if code != 200 {
                     if let errmsg = jsonDic["message"] as? String {
-                        print (errmsg)
+//                        print (errmsg)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.errorLabel.text = errmsg
+                        })
                     }
                 }
             }

@@ -66,6 +66,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8h-Qq-7NB">
+                                <rect key="frame" x="20" y="439" width="560" height="42"/>
+                                <color key="backgroundColor" red="1" green="0.7481316667758775" blue="0.8273799192215896" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="jOW-Bk-sb8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,19 +87,23 @@
                             <constraint firstItem="ZGK-qP-ELi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NrF-uM-XFh"/>
                             <constraint firstItem="ZGK-qP-ELi" firstAttribute="top" secondItem="3ui-ju-gEl" secondAttribute="bottom" constant="168" id="QTs-yc-VeG"/>
                             <constraint firstItem="JIE-9A-Ust" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="R26-YN-StJ"/>
+                            <constraint firstItem="B8h-Qq-7NB" firstAttribute="top" secondItem="JIE-9A-Ust" secondAttribute="bottom" constant="38" id="Rgd-EW-G8g"/>
                             <constraint firstItem="JIE-9A-Ust" firstAttribute="top" secondItem="oPY-xy-HBQ" secondAttribute="bottom" constant="20" id="RjP-uf-zHf"/>
                             <constraint firstItem="oPY-xy-HBQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SIj-5D-68i"/>
                             <constraint firstItem="JIE-9A-Ust" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Vl6-3T-ISV"/>
                             <constraint firstItem="LWG-4f-OBt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dvJ-1W-6uk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B8h-Qq-7NB" secondAttribute="trailing" id="ieT-JB-g7H"/>
                             <constraint firstItem="3ui-ju-gEl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="j5Y-1W-b88"/>
                             <constraint firstItem="3ui-ju-gEl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mId-p2-7t4"/>
                             <constraint firstItem="itD-do-dWE" firstAttribute="top" secondItem="3ui-ju-gEl" secondAttribute="bottom" constant="40" id="oYg-Xg-tDc"/>
                             <constraint firstItem="JIE-9A-Ust" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qly-5s-A3m"/>
+                            <constraint firstItem="B8h-Qq-7NB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="s1k-iL-RIi"/>
                             <constraint firstItem="LWG-4f-OBt" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yqa-u5-bfB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="JIE-9A-Ust" id="Bhx-CO-3nf"/>
+                        <outlet property="errorLabel" destination="B8h-Qq-7NB" id="rmM-0j-Q41"/>
                         <outlet property="prefLabel" destination="LWG-4f-OBt" id="hwi-c2-7bo"/>
                         <outlet property="zipField" destination="3ui-ju-gEl" id="zha-D7-1fL"/>
                     </connections>
